@@ -9,60 +9,60 @@ Core Features
 
 Concepts used:
 
-HTML forms,CSS styling,JS validation
+HTML forms, CSS styling, JS validation
 
 Fields:
 
-Username,Password
+Username, Password
 
 Validation:
 
-empty fields,password length
+empty fields, password length
 
 
 2️⃣ Dashboard Page
 
 After login user sees:
 
-total sales,invoices created,revenue today
+total sales, invoices created, revenue today
 
 Concepts used:
 
-JavaScript DOM,Bootstrap cards
+JavaScript DOM, Bootstrap cards
 
 3️⃣ Create Invoice Page
 
 User can:
 
-enter customer name,add products,quantity,price,GST %
+enter customer name, add products, quantity,price, GST %
 
 System calculates automatically:
 
-Subtotal,GST,Total
+Subtotal, GST, Total
 
 Concepts used:
 
-JavaScript calculations,DOM manipulation,tables,dynamic rows
+JavaScript calculations, DOM manipulation,tables, dynamic rows
 
 4️⃣ Product Management
 
 User can:
 
-add new product,edit product, delete product
+add new product, edit product, delete product
 
 Concepts used:
 
-jQuery,dynamic table updates
+jQuery, dynamic table updates
 
 5️⃣ Invoice History
 
 Table showing:
 
-Invoice ID,Date,Customer,Amount
+Invoice ID, Date, Customer, Amount
 
 Concepts used:
 
-Bootstrap tables,JS arrays,sorting
+Bootstrap tables, JS arrays, sorting
 
 6️⃣ Email Invoice
 
