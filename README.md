@@ -1,7 +1,7 @@
 # GST-billing-system
 SmartGST – Web based GST billing system for small businesses
 
-Core Features (Perfect for Your Syllabus)
+Core Features
 
 1️⃣ Login Page
 
