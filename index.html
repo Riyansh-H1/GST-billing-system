@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartGST login</title>
+
+    <!-- css link 
+    bootstrap link -->
+</head>
+<body>
+    <video id="bg-video" width="250" autoplay controls loop muted >
+        <source src="/videos/login-background.webm" type="video/webm" />
+        <source src="/videos/login-background.mp4" type="video/mp4" />
+    </video>
+    <header>
+        <div class="header">  
+            <img id="logo" src="/images/logo.jpg" alt="LOGO" decoding="sync" fetchpriority="high">
+            <h3 id="heading">SmartGST</h3>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <div class="login-container">
+                <h2 id="heading">SmartGST Login</h2>
+                <form>
+                    <label class="input-box">Enter your username: 
+                        <input id="username" type="text" placeholder="Username">
+                    </label>
+                    <label class="input-box">Enter your password: 
+                        <input id="password" type="password" placeholder="Password">
+                    </label>
+                    <button id="LoginButton">Login</button>
+                </form>
+                <p>Don't have account? <a href="#" id="show-signup">Sign up</a></p>
+            </div>
+        </div>
+        <div class="signup-container" style="display: none;">
+            <h2 id="signup-heading">SmartGST Signup</h2>
+            <form>
+                <label class="input-box">
+                    <input id="nname" type="text" placeholder="name">
+                </label>
+                <label class="input-box">Enter your username: 
+                    <input id="username" type="text" placeholder="Username">
+                </label>
+                <label class="input-box">Enter your password: 
+                    <input id="password" type="password" placeholder="Password">
+                </label>
+                <button id="signupButton">SignUp</button>
+            </form>
+            <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+        </div>
+
+    </main>
+    
+</body>
+</html>
