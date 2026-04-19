@@ -6,7 +6,7 @@
 
 body{
   min-height: 100vh;
-  overflow: hidden; 
+  /* overflow: hidden;  */
 }
 
 
@@ -23,6 +23,7 @@ body{
 
 .overlay-content {
   position: relative;
+  top: 100px;
   z-index: 1;
   height: 100vh;
 
@@ -30,13 +31,57 @@ body{
   justify-content: center;
   align-items: center;
 
-  background: rgba(0, 0, 0, 0.5); /* DARK OVERLAY */
+  /* background: rgba(0, 0, 0, 0.5);  */
 }
 
+.header{
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  height:70px;
+  width: 100%;
+  z-index: 2;
+  background-color: #98B9F2;
+  align-items: center;
+  #logo{
+    position: fixed;
+    left: 10px;
+  }
+  #heading{
+    color: #141B41;
+  }
+}
+
+
 .login-container {
-  background: rgba(255, 255, 255, 0.1);
+  /* background: rgba(255, 255, 255, 0.1);
   padding: 30px;
   border-radius: 10px;
   backdrop-filter: blur(10px);
+  text-align: center; */
   text-align: center;
+  display: flex;
+  padding: 30px;
+  .greeting ,.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* height: 120vh; */
+    width: 60vh;
+    #login-heading{
+      padding-bottom: 20px;
+      color:rgb(20, 27, 65);
+    }
+    #login-about{
+      margin: 39px;
+    }
+    padding: 50px 40px 50px 40px;
+    /* margin: 10px; */
+    background-color: rgba(145, 142, 244,0.8);
+    border-radius: 10px;
+    align-content:center;
+  }
+  .form{
+    background-color: rgba(111, 156, 235,0.8);
+  }
 }
