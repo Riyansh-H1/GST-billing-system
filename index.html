@@ -4,9 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartGST login</title>
-    <link rel="stylesheet" href="./css/style.css"
-    //bootstraplink
+    <link rel="stylesheet" href="./css/style.css">
+ <!-- //bootstraplink -->
+    <script>
+        function validateform() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
 
+            // Simple validation
+            if (username === "" || password === "") {
+                alert("All fields are required!");
+                return false;
+            }
+
+            // Example stored credentials (client-side)
+            let storedName = "admin";
+            let storedPassword = "1234";
+
+            if (username === storedName && password === storedPassword) {
+                alert("Login Successful!");
+                return true;
+            } else {
+                alert("Invalid Credentials!");
+                return false;
+            }
+        }
+    </script>
 </HEAD>
 
 <body>
@@ -22,14 +45,14 @@
         your browser does not support this video
     </video>
         <main>
-            <div class="main-container" style="display: none;">
+            <div class="main-container" >
                 <div class="login-container">
                     <div class="greeting"> 
                         <h2 id="login-heading">Welcome Back to SmartGST</h2>
                         <p id="login-about"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus illo culpa distinctio odio minima dicta, voluptatum iusto quaerat dolorum, et itaque nemo quis voluptate non suscipit facilis pariatur. Deserunt, quasi. </p>
                     </div>
                     <div class="form">
-                    <form>
+                    <form onsubmit="return validateform()">
                         <label class="input-box">Enter your username: 
                             <input id="username" type="text" placeholder="Username">
                         </label><br><br>
@@ -42,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="signup-container">
+            <div class="signup-container" style="display: none;">
                 <div class="form">
                 <form>
                     <label class="input-box">Enter Your name:
