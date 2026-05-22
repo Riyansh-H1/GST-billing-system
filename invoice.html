@@ -11,49 +11,58 @@
 
 <body>
     <h1>GST Billing System - Create Invoice</h1>
-    <div class="container">
-        <div class="customer-details">
-            <h2>Customer Details</h2>
-            <form>
-                <label>Customer Name:</label>
-                <input type="text" id="customerName" placeholder="Enter Customer name">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <input class="form-control mb-2 mt-3">
+                <div class="customer-details">
+                    <h2>Customer Details</h2>
+                    <form>
+                        <label>Customer Name:</label>
+                        <input type="text" id="customerName" placeholder="Enter Customer name">
 
-                <label>Phone Number:</label>
-                <input type="tel" id="phoneNumber" placeholder="Enter Phone No.">
+                        <label>Phone Number:</label>
+                        <input type="tel" id="phoneNumber" placeholder="Enter Phone No.">
 
-                <label>Address:</label>
-                <textarea id="address" placeholder="Enter Address of Customer"></textarea>
-            </form>
-        </div>
+                        <label>Address:</label>
+                        <textarea id="address" placeholder="Enter Address of Customer"></textarea>
+                    </form>
+                </div>
 
-        <div class="invoice-items">
-            <h2>Invoice Items</h2>
-            <button id="addProductBtn">+ Add Product</button>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>GST%</th>
-                        <th>Total</th>
-                        <th>Action </th>
-                    </tr>
-                </thead>
 
-                <tbody id="productTableBody">
+                <div class="invoice-items">
+                    <h2>Invoice Items</h2>
+                    <button id="addProductBtn btn-primary">+ Add Product</button>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>GST%</th>
+                                <th>Total</th>
+                                <th>Action </th>
+                            </tr>
+                        </thead>
 
-                </tbody>
-            </table>
-        </div>
+                        <tbody id="productTableBody">
 
-        <div class="invoice-summary">
-            <h2>Invoice Summary</h2>
-            <p id="subtotal">Subtotal: ₹0</p>
-            <p id="cgst">CGST: ₹0</p>
-            <p id="sgst">SGST: ₹0</p>
-            <p id="grandtotal">Grand Total: ₹0</p>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
+            <div class="col-md-4">
+
+                <div class="invoice-summary col-md-4">
+                    <h2>Invoice Summary</h2>
+                    <p id="subtotal">Subtotal: ₹0</p>
+                    <p id="cgst">CGST: ₹0</p>
+                    <p id="sgst">SGST: ₹0</p>
+                    <p id="grandtotal">Grand Total: ₹0</p>
+
+                </div>
+            </div>
         </div>
     </div>
 
