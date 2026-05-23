@@ -8,12 +8,12 @@ let grandTotalElement = document.getElementById("grandtotal");
 button.addEventListener("click", function () {
     let row = document.createElement("tr");
     row.innerHTML = `
-    <td><input class="productname" type="text"></td>
-    <td><input class="price" type="number"></td>
-    <td><input class="quantity" type="number"></td>
-    <td><input class="gst" type="number"></td>
+    <td><input class="productname form-control" type="text"></td>
+    <td><input class="price form-control" type="number"></td>
+    <td><input class="quantity form-control" type="number"></td>
+    <td><input class="gst form-control" type="number"></td>
     <td class="total">₹0</td>
-    <td><button class="remove-btn">Remove</button></td>
+    <td><button class="remove-btn btn btn-danger">Remove</button></td>
     `
     
     let productInput = row.querySelector(".productname")
