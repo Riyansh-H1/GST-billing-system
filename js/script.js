@@ -9,14 +9,14 @@ let saveInvoiceBtn = document.getElementById("saveInvoiceBtn");
 button.addEventListener("click", function () {
     let row = document.createElement("tr");
     row.innerHTML = `
-    <td><input class="productname form-control" type="text"></td>
-    <td><input class="price form-control" type="number"></td>
-    <td><input class="quantity form-control" type="number"></td>
-    <td><input class="gst form-control" type="number"></td>
+    <td><input class="productname form-control" type="text" placeholder="Enter Product Name" required></td>
+    <td><input class="price form-control" type="number" placeholder="Enter Price" min="0"></td>
+    <td><input class="quantity form-control" type="number" placeholder="Qty" min="1"></td>
+    <td><input class="gst form-control" type="number" placeholder="GST %" min="0" max="100"></td>
     <td class="total">₹0</td>
     <td><button class="remove-btn btn btn-danger">Remove</button></td>
     `
-    
+
     let productInput = row.querySelector(".productname")
     let priceInput = row.querySelector(".price")
     let quantityInput = row.querySelector(".quantity")
@@ -95,7 +95,7 @@ button.addEventListener("click", function () {
 
     let removeBtn = row.querySelector(".remove-btn")
 
-    removeBtn.addEventListener("click", function() {
+    removeBtn.addEventListener("click", function () {
 
         row.remove()
         calculateSummary()
@@ -105,7 +105,7 @@ button.addEventListener("click", function () {
 
 })
 
-saveInvoiceBtn.addEventListener("click", function() {
+saveInvoiceBtn.addEventListener("click", function () {
 
     let customerNameInput = document.getElementById("customerName")
     let phoneNumberInput = document.getElementById("phoneNumber")
@@ -119,47 +119,47 @@ saveInvoiceBtn.addEventListener("click", function() {
 
     let products = [];
 
-rows.forEach(function(row){
+    rows.forEach(function (row) {
 
-    let productname = row.querySelector(".productname").value;
-    let price = row.querySelector(".price").value;
-    let quantity = row.querySelector(".quantity").value;
-    let gst = row.querySelector(".gst").value;
+        let productname = row.querySelector(".productname").value;
+        let price = row.querySelector(".price").value;
+        let quantity = row.querySelector(".quantity").value;
+        let gst = row.querySelector(".gst").value;
 
-    products.push({
-        productName: productname,
-        price: price,
-        quantity: quantity,
-        gst: gst
+        products.push({
+            productName: productname,
+            price: price,
+            quantity: quantity,
+            gst: gst
+        });
+
     });
 
-});
-
-    if(customerName === "" || rows.length === 0) {
-    alert("Please add invoice details");
-    return;
-}
+    if (customerName === "" || rows.length === 0) {
+        alert("Please add invoice details");
+        return;
+    }
 
     let invoice = {
-   invoiceId: "INV-" + Date.now(),
-   customerName: customerName,
-   phoneNumber: phoneNumber,
-   address: address,
-   products: products,
-   subtotal: subtotalElement.innerText,
-   cgst: cgstElement.innerText,
-   sgst: sgstElement.innerText,
-   grandTotal: grandTotalElement.innerText,
-   date: new Date().toLocaleDateString()
-}
+        invoiceId: "INV-" + Date.now(),
+        customerName: customerName,
+        phoneNumber: phoneNumber,
+        address: address,
+        products: products,
+        subtotal: subtotalElement.innerText,
+        cgst: cgstElement.innerText,
+        sgst: sgstElement.innerText,
+        grandTotal: grandTotalElement.innerText,
+        date: new Date().toLocaleDateString()
+    }
 
 
 
-let invoices = JSON.parse(localStorage.getItem("invoices")) || [];
-invoices.push(invoice);
-localStorage.setItem("invoices", JSON.stringify(invoices));
+    let invoices = JSON.parse(localStorage.getItem("invoices")) || [];
+    invoices.push(invoice);
+    localStorage.setItem("invoices", JSON.stringify(invoices));
 
-alert("Invoice Saved Successfully");
-window.location.href = "history.html";
+    alert("Invoice Saved Successfully");
+    window.location.href = "history.html";
 
 })
