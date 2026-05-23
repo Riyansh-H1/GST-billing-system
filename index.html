@@ -4,55 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartGST login</title>
+    <link rel="stylesheet" href="./css/style.css">
+ <!-- //bootstraplink -->
+    <script>
+        function validateform() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
 
-    <!-- css link 
-    bootstrap link -->
+            // Simple validation
+            if (username === "" || password === "") {
+                alert("All fields are required!");
+                return false;
+            }
+
+            // Example stored credentials (client-side)
+            let storedName = "admin";
+            let storedPassword = "1234";
+
+            if (username === storedName && password === storedPassword) {
+                alert("Login Successful!");
+                return true;
+            } else {
+                alert("Invalid Credentials!");
+                return false;
+            }
+        }
+    </script>
 </head>
+
 <body>
-    <video id="bg-video" width="250" autoplay controls loop muted >
-        <source src="/videos/login-background.webm" type="video/webm" />
-        <source src="/videos/login-background.mp4" type="video/mp4" />
-    </video>
     <header>
         <div class="header">  
-            <img id="logo" src="/images/logo.jpg" alt="LOGO" decoding="sync" fetchpriority="high">
+            <img id="logo" height="50px" src="/images/logo.jpg" alt="LOGO" decoding="sync" fetchpriority="high">
             <h3 id="heading">SmartGST</h3>
         </div>
     </header>
-    <main>
-        <div class="main-container">
-            <div class="login-container">
-                <h2 id="heading">SmartGST Login</h2>
+    <video id="bg-video" autoplay loop muted >
+        <source src="/videos/login-background.webm" type="video/webm" />
+        <source src="/videos/login-background.mp4" type="video/mp4" />
+        your browser does not support this video
+    </video>
+        <main>
+            <div class="main-container" >
+                <div class="login-container">
+                    <div class="greeting"> 
+                        <h2 id="login-heading">Welcome Back to SmartGST</h2>
+                        <p id="login-about"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus illo culpa distinctio odio minima dicta, voluptatum iusto quaerat dolorum, et itaque nemo quis voluptate non suscipit facilis pariatur. Deserunt, quasi. </p>
+                    </div>
+                    <div class="form">
+                    <form onsubmit="return validateform()">
+                        <label class="input-box">Enter your username: 
+                            <input id="username" type="text" placeholder="Username">
+                        </label><br><br>
+                        <label class="input-box">Enter your password: 
+                            <input id="password" type="password" placeholder="Password">
+                        </label><br><br>
+                        <button id="LoginButton">Login</button>
+                    </form>
+                    <p>Don't have account? <a href="#" id="show-signup">Sign up</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="signup-container" style="display: none;">
+                <div class="form">
                 <form>
+                    <label class="input-box">Enter Your name:
+                        <input id="nname" type="text" placeholder="name">
+                    </label><br><br>
                     <label class="input-box">Enter your username: 
                         <input id="username" type="text" placeholder="Username">
-                    </label>
+                    </label><br><br>
                     <label class="input-box">Enter your password: 
                         <input id="password" type="password" placeholder="Password">
-                    </label>
-                    <button id="LoginButton">Login</button>
-                </form>
-                <p>Don't have account? <a href="#" id="show-signup">Sign up</a></p>
+                    </label><br><br>
+                    <button id="signupButton">SignUp</button>
+                </form><br>
+                <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+                </div>
+                <div class="greeting">
+                    <h2 id="signup-heading">SmartGST Signup</h2>
+                    <p>
+                        Lorem ip
+                        'sum dolor sit amet consectetur adipisicing elit. Quod quasi odio quam dolor ut quaerat! Tempore deleniti, dignissimos excepturi quis consequuntur recusandae? Asperiores voluptate velit accusamus ratione vitae. Officiis, illum.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias amet velit deleniti tenetur voluptate fugiat, soluta maxime quo delectus ex dolor porro necessitatibus ea adipisci unde quis, ab accusantium libero!
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="signup-container" style="display: none;">
-            <h2 id="signup-heading">SmartGST Signup</h2>
-            <form>
-                <label class="input-box">
-                    <input id="nname" type="text" placeholder="name">
-                </label>
-                <label class="input-box">Enter your username: 
-                    <input id="username" type="text" placeholder="Username">
-                </label>
-                <label class="input-box">Enter your password: 
-                    <input id="password" type="password" placeholder="Password">
-                </label>
-                <button id="signupButton">SignUp</button>
-            </form>
-            <p>Already have an account? <a href="#" id="show-login">Login</a></p>
-        </div>
 
-    </main>
+        </main>
     
 </body>
 </html>

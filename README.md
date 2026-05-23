@@ -79,3 +79,28 @@ Login page background video.
 Store data using: localStorage
 
 Example: localStorage.setItem("invoice", data)
+
+
+Project folder Structure
+
+gst-billing-project
+│
+├── index.html
+├── dashboard.html
+├── invoice.html
+├── products.html
+├── history.html
+├── about.html
+│
+├── css
+│   └── style.css
+│
+├── js
+│   └── script.js
+│
+├── videos
+│   └── background.mp4
+│
+├── images
+│
+└── README.md
