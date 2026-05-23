@@ -4,6 +4,7 @@ let subtotalElement = document.getElementById("subtotal");
 let cgstElement = document.getElementById("cgst");
 let sgstElement = document.getElementById("sgst");
 let grandTotalElement = document.getElementById("grandtotal");
+let saveInvoiceBtn = document.getElementById("saveInvoiceBtn");
 
 button.addEventListener("click", function () {
     let row = document.createElement("tr");
@@ -104,4 +105,61 @@ button.addEventListener("click", function () {
 
 })
 
+saveInvoiceBtn.addEventListener("click", function() {
 
+    let customerNameInput = document.getElementById("customerName")
+    let phoneNumberInput = document.getElementById("phoneNumber")
+    let addressInput = document.getElementById("address")
+
+    let customerName = customerNameInput.value
+    let phoneNumber = phoneNumberInput.value
+    let address = addressInput.value
+
+    let rows = tableBody.querySelectorAll("tr")
+
+    let products = [];
+
+rows.forEach(function(row){
+
+    let productname = row.querySelector(".productname").value;
+    let price = row.querySelector(".price").value;
+    let quantity = row.querySelector(".quantity").value;
+    let gst = row.querySelector(".gst").value;
+
+    products.push({
+        productName: productname,
+        price: price,
+        quantity: quantity,
+        gst: gst
+    });
+
+});
+
+    if(customerName === "" || rows.length === 0) {
+    alert("Please add invoice details");
+    return;
+}
+
+    let invoice = {
+   invoiceId: "INV-" + Date.now(),
+   customerName: customerName,
+   phoneNumber: phoneNumber,
+   address: address,
+   products: products,
+   subtotal: subtotalElement.innerText,
+   cgst: cgstElement.innerText,
+   sgst: sgstElement.innerText,
+   grandTotal: grandTotalElement.innerText,
+   date: new Date().toLocaleDateString()
+}
+
+
+
+let invoices = JSON.parse(localStorage.getItem("invoices")) || [];
+invoices.push(invoice);
+localStorage.setItem("invoices", JSON.stringify(invoices));
+
+alert("Invoice Saved Successfully");
+window.location.href = "history.html";
+
+})
