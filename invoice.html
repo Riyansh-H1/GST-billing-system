@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1>GST Billing System - Create Invoice</h1>
+    <h1 class="text-center mb-4 fw-bold">GST Billing System - Create Invoice</h1>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-8">
@@ -19,14 +19,15 @@
                         <div class="customer-details">
                             <h2>Customer Details</h2>
                             <form>
-                                <label>Customer Name:</label>
+                                <label class="form-label fw-bold mt-3">Customer Name:</label>
                                 <input type="text" id="customerName" placeholder="Enter Customer name"
                                     class="form-control">
 
-                                <label>Phone Number:</label>
-                                <input type="tel" id="phoneNumber" placeholder="Enter Phone No." class="form-control">
+                                <label class="form-label fw-bold mt-3">Phone Number:</label>
+                                <input type="tel" id="phoneNumber" placeholder="Enter Phone No."
+                                    class="form-control">
 
-                                <label>Address:</label>
+                                <label class="form-label fw-bold mt-3">Address:</label>
                                 <textarea id="address" placeholder="Enter Address of Customer"
                                     class="form-control"></textarea>
                             </form>
@@ -37,7 +38,7 @@
 
                 <div class="invoice-items">
                     <h2>Invoice Items</h2>
-                    <button id="addProductBtn" class="btn btn-primary">+ Add Product</button>
+                    <button id="addProductBtn" class="btn btn-primary mb-3">+ Add Product</button>
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover">
                             <thead class="table-dark">
@@ -68,7 +69,7 @@
                             <p id="subtotal">Subtotal: ₹0</p>
                             <p id="cgst">CGST: ₹0</p>
                             <p id="sgst">SGST: ₹0</p>
-                            <p id="grandtotal">Grand Total: ₹0</p>
+                            <p id="grandtotal" class="fw-bold fs-5 text-success">Grand Total: ₹0</p>
 
                         </div>
                     </div>
