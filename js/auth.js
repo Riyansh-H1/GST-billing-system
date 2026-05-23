@@ -1,147 +1,382 @@
-$(document).ready(function () {
-    // This function gives a smooth modern switch between signup and login cards.
-    function switchAuthBox(currentBox, nextBox) {
-        $(currentBox).addClass("auth-hiding");
+// $(document).ready(function () {
+//     // This function gives a smooth modern switch between signup and login cards.
+//     function switchAuthBox(currentBox, nextBox) {
+//         $(currentBox).addClass("auth-hiding");
 
-        $(currentBox).fadeOut(220, function () {
-            $(currentBox).removeClass("auth-hiding");
+//         $(currentBox).fadeOut(220, function () {
+//             $(currentBox).removeClass("auth-hiding");
 
-            $(nextBox)
-                .addClass("auth-hiding")
-                .fadeIn(220, function () {
-                    $(nextBox).removeClass("auth-hiding").addClass("auth-showing");
+//             $(nextBox)
+//                 .addClass("auth-hiding")
+//                 .fadeIn(220, function () {
+//                     $(nextBox).removeClass("auth-hiding").addClass("auth-showing");
 
-                    setTimeout(function () {
-                        $(nextBox).removeClass("auth-showing");
-                    }, 280);
-                });
-        });
-    }
+//                     setTimeout(function () {
+//                         $(nextBox).removeClass("auth-showing");
+//                     }, 280);
+//                 });
+//         });
+//     }
 
-    $("#showLogin").click(function (event) {
-        event.preventDefault();
-        switchAuthBox("#signupBox", "#loginBox");
-    });
+//     $("#showLogin").click(function (event) {
+//         event.preventDefault();
+//         switchAuthBox("#signupBox", "#loginBox");
+//     });
 
-    $("#showSignup").click(function (event) {
-        event.preventDefault();
-        switchAuthBox("#loginBox", "#signupBox");
-    });
+//     $("#showSignup").click(function (event) {
+//         event.preventDefault();
+//         switchAuthBox("#loginBox", "#signupBox");
+//     });
+// });
+
+
+// ==========================
+// ELEMENTS
+// ==========================
+
+const authContainer =
+    document.getElementById("authContainer");
+
+const showLoginBtn =
+    document.getElementById("showLogin");
+
+const showSignupBtn =
+    document.getElementById("showSignup");
+
+const signupForm =
+    document.getElementById("signupForm");
+
+const loginForm =
+    document.getElementById("loginForm");
+
+const signupContent =
+    document.querySelector(".signup-content");
+
+const loginContent =
+    document.querySelector(".login-content");
+
+
+// ==========================
+// TOGGLE PANELS
+// ==========================
+
+showLoginBtn.addEventListener("click", function (e) {
+
+    e.preventDefault();
+
+    authContainer.classList.add("login-mode");
+
+    signupForm.classList.remove("active");
+    loginForm.classList.add("active");
+
+    signupContent.classList.remove("active");
+    loginContent.classList.add("active");
 });
 
-// Read users from localStorage. If no users exist, return an empty array.
+
+showSignupBtn.addEventListener("click", function (e) {
+
+    e.preventDefault();
+
+    authContainer.classList.remove("login-mode");
+
+    loginForm.classList.remove("active");
+    signupForm.classList.add("active");
+
+    loginContent.classList.remove("active");
+    signupContent.classList.add("active");
+});
+
+
+// ==========================
+// LOCAL STORAGE FUNCTIONS
+// ==========================
+
 function getUsers() {
-    return JSON.parse(localStorage.getItem("users")) || [];
+
+    return JSON.parse(
+        localStorage.getItem("users")
+    ) || [];
 }
 
-// Save the updated users array into localStorage.
+
 function saveUsers(users) {
-    localStorage.setItem("users", JSON.stringify(users));
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
 }
 
-// Show success or error message below the form heading.
-function showMessage(messageId, text, type) {
-    let messageBox = document.getElementById(messageId);
+
+// ==========================
+// MESSAGE FUNCTION
+// ==========================
+
+function showMessage(id, text, type) {
+
+    const messageBox =
+        document.getElementById(id);
+
     messageBox.innerText = text;
-    messageBox.className = "form-message " + type;
+
+    messageBox.className =
+        `form-message ${type}`;
 }
 
-// Simple email check for beginner-friendly validation.
+
+// ==========================
+// EMAIL VALIDATION
+// ==========================
+
 function isEmailValid(email) {
-    return email.includes("@") && email.includes(".");
+
+    return email.includes("@")
+        && email.includes(".");
 }
 
-document.getElementById("signupForm").addEventListener("submit", function (event) {
-    event.preventDefault();
 
-    let username = document.getElementById("signupUsername").value.trim();
-    let email = document.getElementById("signupEmail").value.trim().toLowerCase();
-    let password = document.getElementById("signupPassword").value;
-    let confirmPassword = document.getElementById("confirmPassword").value;
+// ==========================
+// SIGNUP
+// ==========================
 
-    if (username === "" || email === "" || password === "" || confirmPassword === "") {
-        showMessage("signupMessage", "Please fill all fields.", "message-error");
+signupForm.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const username =
+        document.getElementById("signupUsername")
+        .value
+        .trim();
+
+    const email =
+        document.getElementById("signupEmail")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const password =
+        document.getElementById("signupPassword")
+        .value;
+
+    const confirmPassword =
+        document.getElementById("confirmPassword")
+        .value;
+
+
+    // VALIDATION
+
+    if (
+        username === "" ||
+        email === "" ||
+        password === "" ||
+        confirmPassword === ""
+    ) {
+
+        showMessage(
+            "signupMessage",
+            "Please fill all fields.",
+            "message-error"
+        );
+
         return;
     }
+
 
     if (!isEmailValid(email)) {
-        showMessage("signupMessage", "Please enter a valid email address.", "message-error");
+
+        showMessage(
+            "signupMessage",
+            "Enter valid email.",
+            "message-error"
+        );
+
         return;
     }
+
 
     if (password.length < 6) {
-        showMessage("signupMessage", "Password must be at least 6 characters.", "message-error");
+
+        showMessage(
+            "signupMessage",
+            "Password must be at least 6 characters.",
+            "message-error"
+        );
+
         return;
     }
+
 
     if (password !== confirmPassword) {
-        showMessage("signupMessage", "Password and confirm password do not match.", "message-error");
+
+        showMessage(
+            "signupMessage",
+            "Passwords do not match.",
+            "message-error"
+        );
+
         return;
     }
 
-    let users = getUsers();
 
-    // Check if this email is already saved in localStorage.
-    for (let i = 0; i < users.length; i++) {
-        if (users[i].email === email) {
-            showMessage("signupMessage", "This email is already registered.", "message-error");
-            return;
-        }
+    // CHECK EXISTING USER
+
+    const users = getUsers();
+
+    const userExists = users.some(function(user){
+
+        return user.email === email;
+    });
+
+
+    if (userExists) {
+
+        showMessage(
+            "signupMessage",
+            "Email already registered.",
+            "message-error"
+        );
+
+        return;
     }
 
-    let newUser = {
-        username: username,
-        email: email,
-        password: password
+
+    // CREATE USER
+
+    const newUser = {
+        username,
+        email,
+        password
     };
 
+
     users.push(newUser);
+
     saveUsers(users);
 
-    showMessage("signupMessage", "Signup successful. Please login now.", "message-success");
-    document.getElementById("signupForm").reset();
 
-    setTimeout(function () {
-        $("#showLogin").trigger("click");
-    }, 700);
+    // SUCCESS
+
+    showMessage(
+        "signupMessage",
+        "Signup successful.",
+        "message-success"
+    );
+
+
+    signupForm.reset();
+
+
+    // SWITCH TO LOGIN
+
+    setTimeout(function(){
+
+        authContainer.classList.add("login-mode");
+
+        signupForm.classList.remove("active");
+        loginForm.classList.add("active");
+
+        signupContent.classList.remove("active");
+        loginContent.classList.add("active");
+
+    }, 800);
+
 });
 
-document.getElementById("loginForm").addEventListener("submit", function (event) {
-    event.preventDefault();
 
-    let email = document.getElementById("loginEmail").value.trim().toLowerCase();
-    let password = document.getElementById("loginPassword").value;
+// ==========================
+// LOGIN
+// ==========================
+
+loginForm.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const email =
+        document.getElementById("loginEmail")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const password =
+        document.getElementById("loginPassword")
+        .value;
+
 
     if (email === "" || password === "") {
-        showMessage("loginMessage", "Please enter email and password.", "message-error");
+
+        showMessage(
+            "loginMessage",
+            "Enter email and password.",
+            "message-error"
+        );
+
         return;
     }
 
-    let users = getUsers();
-    let foundUser = null;
 
-    for (let i = 0; i < users.length; i++) {
-        if (users[i].email === email) {
-            foundUser = users[i];
-            break;
-        }
-    }
+    const users = getUsers();
 
-    if (foundUser === null) {
-        showMessage("loginMessage", "User does not exist. Please signup first.", "message-error");
+
+    const foundUser = users.find(function(user){
+
+        return user.email === email;
+    });
+
+
+    if (!foundUser) {
+
+        showMessage(
+            "loginMessage",
+            "User not found.",
+            "message-error"
+        );
+
         return;
     }
+
 
     if (foundUser.password !== password) {
-        showMessage("loginMessage", "Incorrect password.", "message-error");
+
+        showMessage(
+            "loginMessage",
+            "Incorrect password.",
+            "message-error"
+        );
+
         return;
     }
 
-    let currentUser = {
+
+    // SAVE CURRENT USER
+
+    const currentUser = {
         username: foundUser.username,
         email: foundUser.email
     };
 
-    localStorage.setItem("currentUser", JSON.stringify(currentUser));
-    window.location.href = "dashboard.html";
+
+    localStorage.setItem(
+        "currentUser",
+        JSON.stringify(currentUser)
+    );
+
+
+    // SUCCESS
+
+    showMessage(
+        "loginMessage",
+        "Login successful.",
+        "message-success"
+    );
+
+
+    // REDIRECT
+
+    setTimeout(function(){
+
+        window.location.href = "dashboard.html";
+
+    }, 1000);
+
 });
