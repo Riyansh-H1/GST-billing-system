@@ -1,0 +1,259 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #141b41;
+    background:
+        linear-gradient(135deg, rgba(152, 185, 242, 0.25), rgba(145, 142, 244, 0.18)),
+        #f7f9ff;
+}
+
+.dashboard-navbar {
+    background-color: #141b41;
+    box-shadow: 0 10px 30px rgba(20, 27, 65, 0.18);
+}
+
+.brand-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.brand-box:hover {
+    color: #98b9f2;
+}
+
+.brand-box img {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid #98b9f2;
+}
+
+.dashboard-navbar .nav-link {
+    color: #dfe9ff;
+    font-weight: 600;
+}
+
+.dashboard-navbar .nav-link:hover,
+.dashboard-navbar .nav-link.active {
+    color: #98b9f2;
+}
+
+.navbar-toggler {
+    background-color: #98b9f2;
+}
+
+.logout-btn {
+    color: #ffffff;
+    background-color: #306bac;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-weight: 700;
+}
+
+.logout-btn:hover {
+    color: #ffffff;
+    background-color: #918ef4;
+}
+
+.welcome-section {
+    padding: 58px 0;
+    color: #ffffff;
+    background:
+        linear-gradient(120deg, rgba(20, 27, 65, 0.96), rgba(48, 107, 172, 0.88)),
+        #141b41;
+}
+
+.small-title {
+    color: #98b9f2;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.welcome-section h1 {
+    margin-bottom: 14px;
+    font-size: 2.5rem;
+    line-height: 1.15;
+}
+
+.welcome-section p {
+    color: #dfe9ff;
+    max-width: 620px;
+}
+
+.status-panel,
+.summary-card,
+.action-panel,
+.activity-panel {
+    border-radius: 8px;
+    border: 1px solid rgba(111, 156, 235, 0.25);
+    background-color: #ffffff;
+    box-shadow: 0 16px 38px rgba(20, 27, 65, 0.10);
+}
+
+.status-panel {
+    padding: 26px;
+    background-color: rgba(255, 255, 255, 0.10);
+    border-color: rgba(152, 185, 242, 0.35);
+    color: #ffffff;
+}
+
+.status-panel p {
+    margin: 0 0 8px;
+    color: #98b9f2;
+    font-weight: 700;
+}
+
+.status-panel h2 {
+    font-size: 1.3rem;
+    word-break: break-word;
+}
+
+.status-panel span {
+    color: #dfe9ff;
+}
+
+.dashboard-content {
+    padding-top: 34px;
+    padding-bottom: 45px;
+}
+
+.summary-card {
+    padding: 24px;
+    min-height: 170px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 45px rgba(48, 107, 172, 0.20);
+}
+
+.card-icon {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #306bac, #918ef4);
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.summary-card p {
+    margin-bottom: 6px;
+    color: #306bac;
+    font-weight: 700;
+}
+
+.summary-card h2 {
+    margin: 0;
+    color: #141b41;
+    font-size: 2rem;
+}
+
+.action-panel,
+.activity-panel {
+    padding: 26px;
+    height: 100%;
+}
+
+.action-panel h2,
+.activity-panel h2 {
+    color: #141b41;
+    margin-bottom: 18px;
+}
+
+.action-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.action-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 6px;
+    color: #141b41;
+    text-decoration: none;
+    font-weight: 700;
+    background-color: rgba(152, 185, 242, 0.20);
+    border: 1px solid rgba(111, 156, 235, 0.25);
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.action-link span {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: #306bac;
+}
+
+.action-link:hover {
+    color: #141b41;
+    background-color: rgba(145, 142, 244, 0.22);
+    transform: translateX(5px);
+}
+
+.activity-badge {
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: #306bac;
+    font-weight: 700;
+}
+
+.activity-table {
+    margin-bottom: 0;
+}
+
+.activity-table th {
+    color: #ffffff;
+    background-color: #141b41;
+}
+
+.activity-table td {
+    vertical-align: middle;
+}
+
+@media (max-width: 991px) {
+    .welcome-section h1 {
+        font-size: 2rem;
+    }
+
+    .logout-btn {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 575px) {
+    .welcome-section {
+        padding: 38px 0;
+    }
+
+    .summary-card,
+    .action-panel,
+    .activity-panel,
+    .status-panel {
+        padding: 20px;
+    }
+}

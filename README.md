@@ -104,3 +104,49 @@ gst-billing-project
 ├── images
 │
 └── README.md
+
+1. Login Page
+User logs into system.
+
+2. Dashboard
+After login, user sees summary.
+Total Sales Today
+Invoices Created
+Total Products
+
+3. Create Invoice Page
+Main feature of the project.
+    Enter customer name
+    Add product
+    Enter quantity
+    Enter price
+    Select GST %
+Website calculates:
+    Subtotal
+    GST amount
+    Total bill
+
+4. Product Management
+User can manage product list.
+Example:
+    Add product
+    Edit product
+    Delete product
+
+5. Invoice History
+Table showing previous invoices.
+Example:
+    Invoice ID
+    Customer
+    Date
+    Amount
+
+6. About Page
+Explain software purpose.
+
+7. Contact Page
+Simple form:
+    Name
+    Email
+    Message
+    Submit
