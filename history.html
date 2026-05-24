@@ -10,6 +10,39 @@
 </head>
 
 <body class="bg-light">
+    <nav class="navbar navbar-expand-lg dashboard-navbar">
+        <div class="container">
+            <a class="navbar-brand brand-box" href="dashboard.html">
+                <img src="images/logo.jpg" alt="SmartGST logo">
+                <span>SmartGST</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="dashboardMenu">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="invoice.html">Invoice</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.html">History</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn logout-btn" id="logoutBtn">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
     <h1 class="text-center fw-bold mb-4">
         Invoice History
     </h1>
