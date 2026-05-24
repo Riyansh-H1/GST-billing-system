@@ -144,11 +144,6 @@ saveInvoiceBtn.addEventListener("click", function () {
         return;
     }
 
-    if(productname === "" || price === "" || quantity === "") {
-        alert("Please add invoice details");
-        return;
-    }
-
     let invoice = {
         invoiceId: "INV-" + Date.now(),
         customerName: customerName,
