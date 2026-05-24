@@ -71,6 +71,10 @@ button.addEventListener("click", function () {
 
         let cgst = totalGST / 2;
         let sgst = totalGST / 2;
+        window.finalSubtotal = subtotal;
+        window.finalCGST = cgst;
+        window.finalSGST = sgst;
+        window.finalGrandTotal = grandTotal;
 
         subtotalElement.innerText = "Subtotal: ₹" + subtotal;
         cgstElement.innerText = "CGST: ₹" + cgst;
@@ -146,10 +150,10 @@ saveInvoiceBtn.addEventListener("click", function () {
         phoneNumber: phoneNumber,
         address: address,
         products: products,
-        subtotal: subtotalElement.innerText,
-        cgst: cgstElement.innerText,
-        sgst: sgstElement.innerText,
-        grandTotal: grandTotalElement.innerText,
+        subtotal: finalSubtotal,
+        cgst: finalCGST,
+        sgst: finalSGST,
+        grandTotal: finalGrandTotal,
         date: new Date().toLocaleDateString()
     }
 
