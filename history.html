@@ -7,6 +7,7 @@
     <title>SmartGST - Invoice History</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body class="bg-light">
@@ -75,6 +76,39 @@
     <footer class="text-center mt-5 mb-3 text-muted">
         SmartGST Billing System © 2026
     </footer>
+    <div class="modal fade" id="customModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0">
 
+                <div class="modal-header text-white" style="background-color:#141b41;">
+
+                    <h5 class="modal-title">GST Billing System</h5>
+
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <div class="modal-body" style="background-color:#98b9f2; color:#141b41;">
+
+                    <p id="modalMessage" class="mb-0 fw-semibold"></p>
+
+                </div>
+
+                <div class="modal-footer" style="background-color:#6f9ceb;">
+
+                    <button type="button" class="btn text-white" data-bs-dismiss="modal"
+                        style="background-color:#306bac;">
+
+                        Close
+
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

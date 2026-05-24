@@ -6,6 +6,18 @@ let sgstElement = document.getElementById("sgst");
 let grandTotalElement = document.getElementById("grandtotal");
 let saveInvoiceBtn = document.getElementById("saveInvoiceBtn");
 
+function showModal(message) {
+
+    document.getElementById("modalMessage")
+        .innerText = message;
+
+    let modal = new bootstrap.Modal(
+        document.getElementById("customModal")
+    );
+
+    modal.show();
+}
+
 button.addEventListener("click", function () {
     let row = document.createElement("tr");
     row.innerHTML = `
@@ -111,6 +123,7 @@ button.addEventListener("click", function () {
 
 saveInvoiceBtn.addEventListener("click", function () {
 
+
     let customerNameInput = document.getElementById("customerName")
     let phoneNumberInput = document.getElementById("phoneNumber")
     let addressInput = document.getElementById("address")
@@ -139,8 +152,9 @@ saveInvoiceBtn.addEventListener("click", function () {
 
     });
 
-    if (customerName === "" || rows.length === 0) {
-        alert("Please add invoice details");
+
+    if (customerName === "" || finalGrandTotal <= 0) {
+        showModal("Please add invoice details");
         return;
     }
 
@@ -163,8 +177,10 @@ saveInvoiceBtn.addEventListener("click", function () {
     invoices.push(invoice);
     localStorage.setItem("invoices", JSON.stringify(invoices));
 
-    alert("Invoice Saved Successfully");
-    window.location.href = "history.html";
+    showModal("Invoice Saved Successfully");
+    setTimeout(() => {
+        window.location.href = "history.html";
+    }, 2000);
 
 })
- button.click();
+button.click();

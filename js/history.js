@@ -1,5 +1,19 @@
+
+
 let historyTableBody = document.getElementById("historyTableBody");
 let invoices = JSON.parse(localStorage.getItem("invoices")) || [];
+
+function showModal(message) {
+
+    document.getElementById("modalMessage")
+        .innerText = message;
+
+    let modal = new bootstrap.Modal(
+        document.getElementById("customModal")
+    );
+
+    modal.show();
+}
 
 if (invoices.length === 0) {
     historyTableBody.innerHTML = `
@@ -47,7 +61,7 @@ GST: ${product.gst}%
 `;
 
             });
-            alert(details);
+            showModal(details);
 
         });
     });

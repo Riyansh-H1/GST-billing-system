@@ -12,6 +12,18 @@ document.addEventListener(
 );
 
 
+function showModal(message) {
+
+    document.getElementById("modalMessage")
+        .innerText = message;
+
+    let modal = new bootstrap.Modal(
+        document.getElementById("customModal")
+    );
+
+    modal.show();
+}
+
 // Add Product
 productForm.addEventListener(
     "submit",
