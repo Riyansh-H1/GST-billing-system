@@ -1,38 +1,4 @@
-// $(document).ready(function () {
-//     // This function gives a smooth modern switch between signup and login cards.
-//     function switchAuthBox(currentBox, nextBox) {
-//         $(currentBox).addClass("auth-hiding");
 
-//         $(currentBox).fadeOut(220, function () {
-//             $(currentBox).removeClass("auth-hiding");
-
-//             $(nextBox)
-//                 .addClass("auth-hiding")
-//                 .fadeIn(220, function () {
-//                     $(nextBox).removeClass("auth-hiding").addClass("auth-showing");
-
-//                     setTimeout(function () {
-//                         $(nextBox).removeClass("auth-showing");
-//                     }, 280);
-//                 });
-//         });
-//     }
-
-//     $("#showLogin").click(function (event) {
-//         event.preventDefault();
-//         switchAuthBox("#signupBox", "#loginBox");
-//     });
-
-//     $("#showSignup").click(function (event) {
-//         event.preventDefault();
-//         switchAuthBox("#loginBox", "#signupBox");
-//     });
-// });
-
-
-// ==========================
-// ELEMENTS
-// ==========================
 
 const authContainer =
     document.getElementById("authContainer");
@@ -128,11 +94,11 @@ function showMessage(id, text, type) {
 // ==========================
 // EMAIL VALIDATION
 // ==========================
-
 function isEmailValid(email) {
-
-    return email.includes("@")
-        && email.includes(".");
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+function isPasswordValid(password) {
+    return password.length >= 6;
 }
 
 
@@ -146,22 +112,24 @@ signupForm.addEventListener("submit", function (e) {
 
     const username =
         document.getElementById("signupUsername")
-        .value
-        .trim();
+            .value
+            .trim();
 
     const email =
         document.getElementById("signupEmail")
-        .value
-        .trim()
-        .toLowerCase();
+            .value
+            .trim()
+            .toLowerCase();
 
     const password =
         document.getElementById("signupPassword")
-        .value;
+            .value
+            .trim();
 
     const confirmPassword =
         document.getElementById("confirmPassword")
-        .value;
+            .value
+            .trim();
 
 
     // VALIDATION
@@ -181,7 +149,14 @@ signupForm.addEventListener("submit", function (e) {
 
         return;
     }
-
+    if (username.length < 3) {
+        showMessage(
+            "signupMessage",
+            "Username must be at least 3 characters",
+            "error"
+        );
+        return;
+    }
 
     if (!isEmailValid(email)) {
 
@@ -194,7 +169,14 @@ signupForm.addEventListener("submit", function (e) {
         return;
     }
 
-
+    if (!isPasswordValid(password)) {
+        showMessage(
+            "signupMessage",
+            "Password must be at least 6 characters",
+            "error"
+        );
+        return;
+    }
     if (password.length < 6) {
 
         showMessage(
@@ -223,7 +205,7 @@ signupForm.addEventListener("submit", function (e) {
 
     const users = getUsers();
 
-    const userExists = users.some(function(user){
+    const userExists = users.some(function (user) {
 
         return user.email === email;
     });
@@ -269,7 +251,7 @@ signupForm.addEventListener("submit", function (e) {
 
     // SWITCH TO LOGIN
 
-    setTimeout(function(){
+    setTimeout(function () {
 
         authContainer.classList.add("login-mode");
 
@@ -294,13 +276,14 @@ loginForm.addEventListener("submit", function (e) {
 
     const email =
         document.getElementById("loginEmail")
-        .value
-        .trim()
-        .toLowerCase();
+            .value
+            .trim()
+            .toLowerCase();
 
     const password =
         document.getElementById("loginPassword")
-        .value;
+            .value
+            .trim();
 
 
     if (email === "" || password === "") {
@@ -318,7 +301,7 @@ loginForm.addEventListener("submit", function (e) {
     const users = getUsers();
 
 
-    const foundUser = users.find(function(user){
+    const foundUser = users.find(function (user) {
 
         return user.email === email;
     });
@@ -373,7 +356,7 @@ loginForm.addEventListener("submit", function (e) {
 
     // REDIRECT
 
-    setTimeout(function(){
+    setTimeout(function () {
 
         window.location.href = "dashboard.html";
 
