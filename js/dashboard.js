@@ -22,27 +22,17 @@ function getStoredArray(keyName) {
 function getInvoiceAmount(invoice) {
     // Different pages may save invoice total using slightly different names.
     // This keeps the dashboard simple and flexible.
-    if (invoice.grandTotal) {
-        return Number(invoice.grandTotal);
-    }
+    
+    let rawTotal =
+        invoice.grandTotal 
 
-    if (invoice.grandtotal) {
-        return Number(invoice.grandtotal);
-    }
+    let cleanedTotal = String(rawTotal)
+        .replace("Grand Total:", "")
+        .replace("₹", "")
+        .trim();
 
-    if (invoice.totalAmount) {
-        return Number(invoice.totalAmount);
-    }
-
-    if (invoice.total) {
-        return Number(invoice.total);
-    }
-
-    if (invoice.amount) {
-        return Number(invoice.amount);
-    }
-
-    return 0;
+    let invoiceTotal = Number(cleanedTotal);
+    return invoiceTotal
 }
 
 function showDashboardData() {
