@@ -183,4 +183,12 @@ saveInvoiceBtn.addEventListener("click", function () {
     }, 2000);
 
 })
+
+document.getElementById("logoutBtn").addEventListener("click", function () {
+    localStorage.removeItem("currentUser");
+
+    $("#logoutBtn").fadeOut(200, function () {
+        window.location.href = "index.html";
+    });
+});
 button.click()

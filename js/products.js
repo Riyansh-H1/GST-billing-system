@@ -154,3 +154,10 @@ function deleteProduct(index) {
     // Reload table
     loadProducts();
 }
+document.getElementById("logoutBtn").addEventListener("click", function () {
+    localStorage.removeItem("currentUser");
+
+    $("#logoutBtn").fadeOut(200, function () {
+        window.location.href = "index.html";
+    });
+});
