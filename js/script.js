@@ -144,6 +144,11 @@ saveInvoiceBtn.addEventListener("click", function () {
         return;
     }
 
+    if(productname === "" || price === "" || quantity === "") {
+        alert("Please add invoice details");
+        return;
+    }
+
     let invoice = {
         invoiceId: "INV-" + Date.now(),
         customerName: customerName,
@@ -154,7 +159,7 @@ saveInvoiceBtn.addEventListener("click", function () {
         cgst: finalCGST,
         sgst: finalSGST,
         grandTotal: finalGrandTotal,
-        date: new Date().toLocaleDateString()
+        date: new Date().toLocaleString()
     }
 
 
@@ -167,3 +172,4 @@ saveInvoiceBtn.addEventListener("click", function () {
     window.location.href = "history.html";
 
 })
+ button.click();

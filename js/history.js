@@ -1,9 +1,7 @@
 let historyTableBody = document.getElementById("historyTableBody");
-
 let invoices = JSON.parse(localStorage.getItem("invoices")) || [];
 
 if (invoices.length === 0) {
-
     historyTableBody.innerHTML = `
     <tr>
         <td colspan="5" class="text-center text-danger fw-bold">
@@ -13,16 +11,16 @@ if (invoices.length === 0) {
     `;
 
 } else {
-
-    invoices.forEach(function (invoice) {
+    invoices.forEach(function (invoice,index) {
 
         let row = document.createElement("tr");
 
         row.innerHTML = `
+        <td>${index + 1}</td>
         <td>${invoice.invoiceId}</td>
         <td>${invoice.customerName}</td>
         <td>${invoice.date}</td>
-        <td>${invoice.grandTotal}</td>
+        <td>₹${invoice.grandTotal}</td>
 
         <td>
             <button class="btn btn-info btn-sm view-btn">
@@ -40,7 +38,6 @@ if (invoices.length === 0) {
             let details = "";
 
             invoice.products.forEach(function (product) {
-
                 details += `
 Product Name: ${product.productName}
 Price: ₹${product.price}
@@ -50,11 +47,8 @@ GST: ${product.gst}%
 `;
 
             });
-
             alert(details);
 
         });
-
     });
-
 }
