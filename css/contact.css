@@ -1,0 +1,154 @@
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f7ff;
+    color: #141b41;
+}
+
+/* Navbar */
+.dashboard-navbar {
+    background-color: #141b41;
+    padding: 14px 0;
+}
+
+.brand-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.brand-box img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.brand-box span {
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.nav-link {
+    color: white;
+    margin-left: 12px;
+    transition: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #98b9f2;
+}
+
+/* Hero Section */
+.contact-hero {
+    background: linear-gradient(135deg, #141b41, #306bac);
+    color: white;
+    padding: 90px 0;
+    text-align: center;
+}
+
+.contact-hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.contact-hero p {
+    margin-top: 15px;
+    font-size: 17px;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 80px 0;
+}
+
+.contact-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.section-title h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #555;
+    margin-bottom: 35px;
+}
+
+/* Form Styling */
+.form-control {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #cfd8ea;
+}
+
+.form-control:focus {
+    border-color: #306bac;
+    box-shadow: none;
+}
+
+.submit-btn {
+    background-color: #306bac;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.submit-btn:hover {
+    background-color: #141b41;
+    color: white;
+}
+
+/* Modal Styling */
+.success-icon {
+    font-size: 60px;
+    color: green;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+.footer-section {
+    background-color: #141b41;
+    color: white;
+    padding: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .contact-hero {
+        padding: 70px 0;
+    }
+
+    .contact-hero h1 {
+        font-size: 34px;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+    .contact-card {
+        padding: 25px;
+    }
+
+}
