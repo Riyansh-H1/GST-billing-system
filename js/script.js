@@ -183,4 +183,4 @@ saveInvoiceBtn.addEventListener("click", function () {
     }, 2000);
 
 })
-button.click();
+button.click()

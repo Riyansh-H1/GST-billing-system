@@ -60,9 +60,15 @@ showSignupBtn.addEventListener("click", function (e) {
 
 function getUsers() {
 
-    return JSON.parse(
+    let users = JSON.parse(
         localStorage.getItem("users")
-    ) || [];
+    );
+
+    if (!Array.isArray(users)) {
+        return [];
+    }
+
+    return users;
 }
 
 
